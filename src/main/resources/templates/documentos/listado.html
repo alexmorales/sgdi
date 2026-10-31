@@ -4,44 +4,81 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Documentos | SGDI</title>
+    <link rel="stylesheet" th:href="@{/css/documentos.css}">
+    <script th:src="@{/js/documentos.js}" defer></script>
 </head>
 <body>
-<main>
-    <h1>Documentos</h1>
-    <table>
-        <thead>
-        <tr>
-            <th>id_documento</th>
-            <th>id_categoria</th>
-            <th>id_usuario</th>
-            <th>id_tipo_documento</th>
-            <th>nombre</th>
-            <th>descripcion</th>
-            <th>path</th>
-            <th>tamanio</th>
-            <th>fecha_carga</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each="documento : ${documentos}">
-            <td>
-                <a th:href="@{/documentos/{id}(id=${documento.idDocumento})}"
-                   th:text="${documento.idDocumento}"></a>
-            </td>
-            <td th:text="${documento.idCategoria}"></td>
-            <td th:text="${documento.idUsuario}"></td>
-            <td th:text="${documento.idTipoDocumento}"></td>
-            <td th:text="${documento.nombre}"></td>
-            <td th:text="${documento.descripcion}"></td>
-            <td th:text="${documento.path}"></td>
-            <td th:text="${documento.tamanio}"></td>
-            <td th:text="${documento.fechaCarga}"></td>
-        </tr>
-        <tr th:if="${#lists.isEmpty(documentos)}">
-            <td colspan="9">No hay documentos registrados.</td>
-        </tr>
-        </tbody>
-    </table>
+<header class="site-header">
+    <a class="brand" th:href="@{/documentos}" aria-label="SGDI, ir al listado de documentos">SGDI</a>
+    <span class="header-caption">Sistema de Gestión Documental</span>
+</header>
+<main class="page-shell">
+    <section class="page-heading" aria-labelledby="page-title">
+        <p class="eyebrow">Consulta documental</p>
+        <h1 id="page-title">Documentos</h1>
+        <p class="intro">Consulta un documento por su identificador o revisa los registros disponibles.</p>
+    </section>
+
+    <section class="panel search-panel" aria-labelledby="search-title">
+        <div>
+            <h2 id="search-title">Buscar documento</h2>
+            <p class="helper-text" id="document-id-help">Ingresa el identificador para consultar su ficha.</p>
+        </div>
+        <form class="search-form" id="document-search-form" method="get"
+              th:action="@{/documentos}" th:attr="data-base-url=@{/documentos}">
+            <div class="form-field">
+                <label for="id_documento">Identificador del documento</label>
+                <input id="id_documento" name="id_documento" type="number" min="1" step="1"
+                       required aria-describedby="document-id-help">
+            </div>
+            <button type="submit">Consultar</button>
+        </form>
+    </section>
+
+    <section class="panel results-panel" aria-labelledby="results-title">
+        <div class="section-heading">
+            <div>
+                <p class="eyebrow">Registros</p>
+                <h2 id="results-title">Documentos disponibles</h2>
+            </div>
+        </div>
+        <div class="table-scroll">
+            <table>
+                <thead>
+                <tr>
+                    <th scope="col">id_documento</th>
+                    <th scope="col">id_categoria</th>
+                    <th scope="col">id_usuario</th>
+                    <th scope="col">id_tipo_documento</th>
+                    <th scope="col">nombre</th>
+                    <th scope="col">descripcion</th>
+                    <th scope="col">path</th>
+                    <th scope="col">tamanio</th>
+                    <th scope="col">fecha_carga</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="documento : ${documentos}">
+                    <td>
+                        <a class="record-link" th:href="@{/documentos/{id}(id=${documento.idDocumento})}"
+                           th:text="${documento.idDocumento}"></a>
+                    </td>
+                    <td th:text="${documento.idCategoria}"></td>
+                    <td th:text="${documento.idUsuario}"></td>
+                    <td th:text="${documento.idTipoDocumento}"></td>
+                    <td th:text="${documento.nombre}"></td>
+                    <td th:text="${documento.descripcion}"></td>
+                    <td th:text="${documento.path}"></td>
+                    <td th:text="${documento.tamanio}"></td>
+                    <td th:text="${documento.fechaCarga}"></td>
+                </tr>
+                <tr th:if="${#lists.isEmpty(documentos)}">
+                    <td class="empty-state" colspan="9" role="status">No hay documentos registrados.</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
 </main>
 </body>
 </html>
