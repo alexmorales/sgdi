@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Documentos | SGDI</title>
+</head>
+<body>
+<main>
+    <h1>Documentos</h1>
+    <table>
+        <thead>
+        <tr>
+            <th>id_documento</th>
+            <th>id_categoria</th>
+            <th>id_usuario</th>
+            <th>id_tipo_documento</th>
+            <th>nombre</th>
+            <th>descripcion</th>
+            <th>path</th>
+            <th>tamanio</th>
+            <th>fecha_carga</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="documento : ${documentos}">
+            <td>
+                <a th:href="@{/documentos/{id}(id=${documento.idDocumento})}"
+                   th:text="${documento.idDocumento}"></a>
+            </td>
+            <td th:text="${documento.idCategoria}"></td>
+            <td th:text="${documento.idUsuario}"></td>
+            <td th:text="${documento.idTipoDocumento}"></td>
+            <td th:text="${documento.nombre}"></td>
+            <td th:text="${documento.descripcion}"></td>
+            <td th:text="${documento.path}"></td>
+            <td th:text="${documento.tamanio}"></td>
+            <td th:text="${documento.fechaCarga}"></td>
+        </tr>
+        <tr th:if="${#lists.isEmpty(documentos)}">
+            <td colspan="9">No hay documentos registrados.</td>
+        </tr>
+        </tbody>
+    </table>
+</main>
+</body>
+</html>

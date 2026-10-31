@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Detalle del documento | SGDI</title>
+</head>
+<body>
+<main>
+    <h1>Detalle del documento</h1>
+    <dl>
+        <dt>id_documento</dt>
+        <dd th:text="${documento.idDocumento}"></dd>
+        <dt>id_categoria</dt>
+        <dd th:text="${documento.idCategoria}"></dd>
+        <dt>id_usuario</dt>
+        <dd th:text="${documento.idUsuario}"></dd>
+        <dt>id_tipo_documento</dt>
+        <dd th:text="${documento.idTipoDocumento}"></dd>
+        <dt>nombre</dt>
+        <dd th:text="${documento.nombre}"></dd>
+        <dt>descripcion</dt>
+        <dd th:text="${documento.descripcion}"></dd>
+        <dt>path</dt>
+        <dd th:text="${documento.path}"></dd>
+        <dt>tamanio</dt>
+        <dd th:text="${documento.tamanio}"></dd>
+        <dt>fecha_carga</dt>
+        <dd th:text="${documento.fechaCarga}"></dd>
+    </dl>
+    <a th:href="@{/documentos}">Volver al listado</a>
+</main>
+</body>
+</html>
