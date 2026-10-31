@@ -4,31 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Detalle del documento | SGDI</title>
+    <link rel="stylesheet" th:href="@{/css/documentos.css}">
 </head>
 <body>
-<main>
-    <h1>Detalle del documento</h1>
-    <dl>
-        <dt>id_documento</dt>
-        <dd th:text="${documento.idDocumento}"></dd>
-        <dt>id_categoria</dt>
-        <dd th:text="${documento.idCategoria}"></dd>
-        <dt>id_usuario</dt>
-        <dd th:text="${documento.idUsuario}"></dd>
-        <dt>id_tipo_documento</dt>
-        <dd th:text="${documento.idTipoDocumento}"></dd>
-        <dt>nombre</dt>
-        <dd th:text="${documento.nombre}"></dd>
-        <dt>descripcion</dt>
-        <dd th:text="${documento.descripcion}"></dd>
-        <dt>path</dt>
-        <dd th:text="${documento.path}"></dd>
-        <dt>tamanio</dt>
-        <dd th:text="${documento.tamanio}"></dd>
-        <dt>fecha_carga</dt>
-        <dd th:text="${documento.fechaCarga}"></dd>
-    </dl>
-    <a th:href="@{/documentos}">Volver al listado</a>
+<header class="site-header">
+    <a class="brand" th:href="@{/documentos}" aria-label="SGDI, ir al listado de documentos">SGDI</a>
+    <span class="header-caption">Sistema de Gestión Documental</span>
+</header>
+<main class="page-shell">
+    <section class="page-heading" aria-labelledby="page-title">
+        <p class="eyebrow">Consulta documental</p>
+        <h1 id="page-title">Detalle del documento</h1>
+    </section>
+    <section class="panel detail-panel" aria-labelledby="document-title">
+        <div class="notice notice-success" role="status">
+            Documento encontrado correctamente.
+        </div>
+        <h2 id="document-title" class="visually-hidden">Información del documento</h2>
+        <dl class="document-details">
+            <dt>id_documento</dt>
+            <dd th:text="${documento.idDocumento}"></dd>
+            <dt>id_categoria</dt>
+            <dd th:text="${documento.idCategoria}"></dd>
+            <dt>id_usuario</dt>
+            <dd th:text="${documento.idUsuario}"></dd>
+            <dt>id_tipo_documento</dt>
+            <dd th:text="${documento.idTipoDocumento}"></dd>
+            <dt>nombre</dt>
+            <dd th:text="${documento.nombre}"></dd>
+            <dt>descripcion</dt>
+            <dd th:text="${documento.descripcion}"></dd>
+            <dt>path</dt>
+            <dd th:text="${documento.path}"></dd>
+            <dt>tamanio</dt>
+            <dd th:text="${documento.tamanio}"></dd>
+            <dt>fecha_carga</dt>
+            <dd th:text="${documento.fechaCarga}"></dd>
+        </dl>
+        <a class="back-link" th:href="@{/documentos}">Volver al listado</a>
+    </section>
 </main>
 </body>
 </html>

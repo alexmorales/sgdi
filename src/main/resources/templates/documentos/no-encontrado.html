@@ -4,12 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Documento no encontrado | SGDI</title>
+    <link rel="stylesheet" th:href="@{/css/documentos.css}">
 </head>
 <body>
-<main>
-    <h1>Documento no encontrado</h1>
-    <p>No existe un documento con el identificador solicitado.</p>
-    <a th:href="@{/documentos}">Volver al listado</a>
+<header class="site-header">
+    <a class="brand" th:href="@{/documentos}" aria-label="SGDI, ir al listado de documentos">SGDI</a>
+    <span class="header-caption">Sistema de Gestión Documental</span>
+</header>
+<main class="page-shell">
+    <section class="page-heading" aria-labelledby="page-title">
+        <p class="eyebrow">Consulta documental</p>
+        <h1 id="page-title">Documento no encontrado</h1>
+    </section>
+    <section class="panel error-panel">
+        <div class="notice notice-error" role="alert">
+            No existe un documento con el identificador solicitado.
+        </div>
+        <a class="back-link" th:href="@{/documentos}">Volver al listado</a>
+    </section>
 </main>
 </body>
 </html>
