@@ -1,0 +1,22 @@
+# Repositorio Git
+.git
+.github
+
+# Variables privadas
+.env
+.env.*
+
+# Configuración de editores
+.idea
+.vscode
+.settings
+
+# Archivos temporales
+*.log
+.DS_Store
+Thumbs.db
+
+# Archivos innecesarios de Maven
+target/*.jar.original
+target/surefire-reports/
+target/test-classes/

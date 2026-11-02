@@ -11,6 +11,9 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import java.time.Instant;
 
+/**
+ * Entidad JPA que representa una categoría documental y su usuario propietario.
+ */
 @Entity
 @Table(name = "categorias")
 public class Categoria {

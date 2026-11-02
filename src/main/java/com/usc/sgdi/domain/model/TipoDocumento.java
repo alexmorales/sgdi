@@ -7,6 +7,9 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
+/**
+ * Entidad JPA que representa un tipo documental.
+ */
 @Entity
 @Table(name = "tipos_documento")
 public class TipoDocumento {

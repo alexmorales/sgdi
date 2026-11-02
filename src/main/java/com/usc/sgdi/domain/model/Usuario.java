@@ -9,6 +9,9 @@ import jakarta.persistence.Table;
 import java.time.Instant;
 import java.time.LocalDateTime;
 
+/**
+ * Entidad JPA que representa un usuario, sus datos de cuenta y fechas de acceso.
+ */
 @Entity
 @Table(name = "usuarios")
 public class Usuario {

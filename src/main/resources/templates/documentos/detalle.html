@@ -18,7 +18,9 @@
     </section>
     <section class="panel detail-panel" aria-labelledby="document-title">
         <div class="notice notice-success" role="status">
-            Documento encontrado correctamente.
+            <span th:text="${mensajeExito != null ? mensajeExito : 'Documento encontrado correctamente.'}">
+                Documento encontrado correctamente.
+            </span>
         </div>
         <h2 id="document-title" class="visually-hidden">Información del documento</h2>
         <dl class="document-details">

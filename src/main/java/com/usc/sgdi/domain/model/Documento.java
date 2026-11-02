@@ -11,6 +11,10 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import java.time.LocalDateTime;
 
+/**
+ * Entidad JPA que representa los metadatos de un documento y sus relaciones
+ * con categoría, usuario y tipo documental.
+ */
 @Entity
 @Table(name = "documentos")
 public class Documento {
@@ -48,6 +52,37 @@ public class Documento {
 	private LocalDateTime fechaCarga;
 
 	protected Documento() {
+	}
+
+	/**
+	 * Crea una entidad documental con sus metadatos y relaciones obligatorias.
+	 *
+	 * @param categoria categoría asociada al documento
+	 * @param usuario usuario asociado al documento
+	 * @param tipoDocumento tipo documental asociado
+	 * @param nombre nombre del documento
+	 * @param descripcion descripción del documento
+	 * @param path ruta registrada del documento
+	 * @param tamanio tamaño del documento en bytes
+	 * @param fechaCarga fecha y hora de carga
+	 */
+	public Documento(
+			Categoria categoria,
+			Usuario usuario,
+			TipoDocumento tipoDocumento,
+			String nombre,
+			String descripcion,
+			String path,
+			Long tamanio,
+			LocalDateTime fechaCarga) {
+		this.categoria = categoria;
+		this.usuario = usuario;
+		this.tipoDocumento = tipoDocumento;
+		this.nombre = nombre;
+		this.descripcion = descripcion;
+		this.path = path;
+		this.tamanio = tamanio;
+		this.fechaCarga = fechaCarga;
 	}
 
 	public Integer getIdDocumento() {

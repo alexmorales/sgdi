@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Registrar documento | SGDI</title>
+    <link rel="stylesheet" th:href="@{/css/documentos.css}">
+</head>
+<body>
+<header class="site-header">
+    <a class="brand" th:href="@{/documentos}" aria-label="SGDI, ir al listado de documentos">SGDI</a>
+    <span class="header-caption">Sistema de Gestión Documental</span>
+</header>
+<main class="page-shell">
+    <section class="page-heading" aria-labelledby="page-title">
+        <p class="eyebrow">Gestión documental</p>
+        <h1 id="page-title">Registrar documento</h1>
+        <p class="intro">Ingresa los metadatos del documento. La fecha de carga se asigna automáticamente.</p>
+    </section>
+
+    <section class="panel" aria-labelledby="form-title">
+        <h2 id="form-title">Metadatos del documento</h2>
+        <form class="registration-form" method="post" th:action="@{/documentos}"
+              th:object="${nuevoDocumento}">
+            <div class="form-field">
+                <label for="idCategoria">Identificador de categoría</label>
+                <input id="idCategoria" type="number" min="1" step="1" required
+                       th:field="*{idCategoria}" th:errorclass="invalid-field">
+                <p class="field-error" th:if="${#fields.hasErrors('idCategoria')}"
+                   th:errors="*{idCategoria}"></p>
+            </div>
+            <div class="form-field">
+                <label for="idUsuario">Identificador de usuario</label>
+                <input id="idUsuario" type="number" min="1" step="1" required
+                       th:field="*{idUsuario}" th:errorclass="invalid-field">
+                <p class="field-error" th:if="${#fields.hasErrors('idUsuario')}"
+                   th:errors="*{idUsuario}"></p>
+            </div>
+            <div class="form-field">
+                <label for="idTipoDocumento">Identificador de tipo documental</label>
+                <input id="idTipoDocumento" type="number" min="1" step="1" required
+                       th:field="*{idTipoDocumento}" th:errorclass="invalid-field">
+                <p class="field-error" th:if="${#fields.hasErrors('idTipoDocumento')}"
+                   th:errors="*{idTipoDocumento}"></p>
+            </div>
+            <div class="form-field">
+                <label for="nombre">Nombre</label>
+                <input id="nombre" type="text" maxlength="50" required
+                       th:field="*{nombre}" th:errorclass="invalid-field">
+                <p class="field-error" th:if="${#fields.hasErrors('nombre')}"
+                   th:errors="*{nombre}"></p>
+            </div>
+            <div class="form-field">
+                <label for="descripcion">Descripción</label>
+                <textarea id="descripcion" maxlength="200" required rows="3"
+                          th:field="*{descripcion}" th:errorclass="invalid-field"></textarea>
+                <p class="field-error" th:if="${#fields.hasErrors('descripcion')}"
+                   th:errors="*{descripcion}"></p>
+            </div>
+            <div class="form-field">
+                <label for="path">Ruta del documento</label>
+                <input id="path" type="text" maxlength="200" required
+                       th:field="*{path}" th:errorclass="invalid-field">
+                <p class="field-error" th:if="${#fields.hasErrors('path')}"
+                   th:errors="*{path}"></p>
+            </div>
+            <div class="form-field">
+                <label for="tamanio">Tamaño en bytes</label>
+                <input id="tamanio" type="number" min="0" step="1" required
+                       th:field="*{tamanio}" th:errorclass="invalid-field">
+                <p class="field-error" th:if="${#fields.hasErrors('tamanio')}"
+                   th:errors="*{tamanio}"></p>
+            </div>
+            <div class="form-actions">
+                <button type="submit">Registrar documento</button>
+                <a class="back-link" th:href="@{/documentos}">Cancelar</a>
+            </div>
+        </form>
+    </section>
+</main>
+</body>
+</html>

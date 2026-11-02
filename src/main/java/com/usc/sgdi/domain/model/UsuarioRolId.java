@@ -5,6 +5,9 @@ import jakarta.persistence.Embeddable;
 import java.io.Serializable;
 import java.util.Objects;
 
+/**
+ * Clave primaria compuesta de la asociación entre usuario y rol.
+ */
 @Embeddable
 public class UsuarioRolId implements Serializable {
 
@@ -19,6 +22,12 @@ public class UsuarioRolId implements Serializable {
 	protected UsuarioRolId() {
 	}
 
+	/**
+	 * Crea una clave compuesta para la pareja de identificadores indicada.
+	 *
+	 * @param idUsuario identificador del usuario
+	 * @param idRol identificador del rol
+	 */
 	public UsuarioRolId(Integer idUsuario, Integer idRol) {
 		this.idUsuario = idUsuario;
 		this.idRol = idRol;
@@ -40,6 +49,13 @@ public class UsuarioRolId implements Serializable {
 		this.idRol = idRol;
 	}
 
+	/**
+	 * Compara esta clave con otra usando ambos identificadores.
+	 *
+	 * @param other objeto con el que se compara esta clave
+	 * @return {@code true} si ambos identificadores coinciden; {@code false} en
+	 *         caso contrario
+	 */
 	@Override
 	public boolean equals(Object other) {
 		if (this == other) {
@@ -52,6 +68,11 @@ public class UsuarioRolId implements Serializable {
 				&& Objects.equals(idRol, that.idRol);
 	}
 
+	/**
+	 * Calcula el código hash a partir de los identificadores de usuario y rol.
+	 *
+	 * @return código hash de esta clave compuesta
+	 */
 	@Override
 	public int hashCode() {
 		return Objects.hash(idUsuario, idRol);

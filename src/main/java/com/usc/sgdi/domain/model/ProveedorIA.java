@@ -11,6 +11,10 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import java.time.Instant;
 
+/**
+ * Entidad JPA que representa un proveedor de inteligencia artificial registrado
+ * y el usuario asociado a su registro.
+ */
 @Entity
 @Table(name = "proveedor_ia")
 public class ProveedorIA {

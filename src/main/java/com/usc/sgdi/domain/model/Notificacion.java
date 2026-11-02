@@ -11,6 +11,9 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import java.time.LocalDateTime;
 
+/**
+ * Entidad JPA que representa una notificación asociada a un usuario.
+ */
 @Entity
 @Table(name = "notificaciones")
 public class Notificacion {

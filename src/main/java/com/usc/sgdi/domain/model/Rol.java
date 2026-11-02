@@ -8,6 +8,9 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import java.time.Instant;
 
+/**
+ * Entidad JPA que representa un rol y sus datos de estado y creación.
+ */
 @Entity
 @Table(name = "roles")
 public class Rol {

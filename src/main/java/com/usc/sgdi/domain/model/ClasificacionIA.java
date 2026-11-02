@@ -12,6 +12,10 @@ import jakarta.persistence.Table;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
+/**
+ * Entidad JPA que representa una sugerencia de clasificación asociada a un
+ * documento y al proveedor que la generó.
+ */
 @Entity
 @Table(name = "clasificacion_ia")
 public class ClasificacionIA {

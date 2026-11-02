@@ -10,6 +10,10 @@ import jakarta.persistence.MapsId;
 import jakarta.persistence.Table;
 import java.time.LocalDateTime;
 
+/**
+ * Entidad de asociación entre un usuario y un rol, con clave primaria compuesta
+ * y fecha de asignación.
+ */
 @Entity
 @Table(name = "usuarios_roles")
 public class UsuarioRol {
